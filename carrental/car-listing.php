@@ -20,6 +20,66 @@ function getAllCars()
     }
 }
 
+/*1.	The fucntion filtersCars is defined with 2 parameters.
+function filterCars($cars, $criteria)
+2.	Initialize a new variable named ‘filteredCars’.
+$filteredCars = $cars;
+3.	Check and apply filter for Brand properties.
+if (!empty($criteria['brand'])) {
+    $filteredCars = array_filter($filteredCars, function($car) use ($criteria) {
+        return stripos($car->BrandName, $criteria['brand']) !== false;
+    });
+}
+4.	Check and apply filter for FuelType with their properties.
+if (!empty($criteria['fueltype'])) {
+    $filteredCars = array_filter($filteredCars, function($car) use ($criteria) {
+        return stripos($car->FuelType, $criteria['fueltype']) !== false;
+    });
+}
+5.	Check and apply minimum Price filter under conditions.
+if (!empty($criteria['minprice'])) {
+    $filteredCars = array_filter($filteredCars, function($car) use ($criteria) {
+        return $car->PricePerDay >= $criteria['minprice'];
+    });
+}
+6.	Check and apply maximum price filter with conditions.
+if (!empty($criteria['maxprice'])) {
+    $filteredCars = array_filter($filteredCars, function($car) use ($criteria) {
+        return $car->PricePerDay <= $criteria['maxprice'];
+    });
+}
+7.	Return filteredCars as a result.
+return $filteredCars;
+Types of filtering algorithm used in this project:
+1.	Simple Filtering:
+$filteredCars = array_filter($cars, function($car) {
+    return $car->PricePerDay < 500;
+});
+2.	Multi-Criteria Filtering:
+$filteredCars = array_filter($cars, function($car) {
+    return $car->BrandName === 'Toyota' && $car->FuelType === 'Petrol';
+});
+3.	Range-Based Filtering:
+$filteredCars = array_filter($cars, function($car) {
+    return $car->PricePerDay >= 500 && $car->PricePerDay <= 1000;
+});
+4.	Search-Based Filtering:
+$filteredCars = array_filter($cars, function($car) {
+    return stripos($car->BrandName, 'Honda') !== false;
+});
+Example Code
+$cars = [
+    (object)['BrandName' => 'Toyota', 'FuelType' => 'Petrol', 'PricePerDay' => 600],
+    (object)['BrandName' => 'Honda', 'FuelType' => 'Diesel', 'PricePerDay' => 800],
+    (object)['BrandName' => 'Ford', 'FuelType' => 'Petrol', 'PricePerDay' => 500],
+];
+// Filter cars with price less than $700
+$filteredCars = array_filter($cars, function($car) {
+    return $car->PricePerDay < 700;
+});
+// Result: Toyota and Ford
+print_r($filteredCars);
+ */
 
 // Filtering Algorithm---The filterCars function uses the array_filter algorithm to filter the car list based on criteria like brand, fuel type, and price range.
 function filterCars($cars, $criteria)
